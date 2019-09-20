@@ -18,10 +18,11 @@ app.all("*", function(req, res, next) {
   res.header("Content-Type", "application/json;charset=utf-8");
   next();
 });
+let IndexControllers = require("./controller/IndexControllers");
+app.get('/main',IndexControllers.index);
 
-app.get('/',function(req, res){
- res.json({name:"hmc"});
-});
+let SizeControllers = require("./controller/SizeControllers");
+app.get('/gxg',SizeControllers.index);
 
 app.listen(8081, function(){
     console.log("监听8081端口的服务器已启动");
